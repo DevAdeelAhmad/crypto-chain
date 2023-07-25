@@ -3,6 +3,8 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import logo from "../../public/logo.jpg";
 
 const navigation = [
   { name: "Signals", href: "#", current: false },
@@ -10,7 +12,6 @@ const navigation = [
   { name: "Blog", href: "#", current: false },
   { name: "WatchList", href: "#", current: false },
   { name: "Signals", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -37,11 +38,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
+                  <Image alt="Logo" src={logo} width={45} height={45} />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -53,7 +50,7 @@ export default function Navbar() {
                           item.current
                             ? "bg-gray-900 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "rounded-md px-3 py-2 text-md font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
